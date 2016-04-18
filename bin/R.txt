@@ -761,7 +761,7 @@ int string dlg_title_exit 0x7f060048
 int string dlg_title_free_app 0x7f060047
 int string finger_text 0x7f060055
 int string high_score 0x7f060058
-int string no_camera 0x7f060059
+int string no_vibrator 0x7f060059
 int string noti_desc_brainwavestudio 0x7f060068
 int string noti_desc_circlecolormatch 0x7f060067
 int string noti_desc_flashlight 0x7f060065

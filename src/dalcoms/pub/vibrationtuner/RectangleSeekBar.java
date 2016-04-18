@@ -170,7 +170,7 @@ public class RectangleSeekBar extends Rectangle {
 		if ( isEnabled() ) {
 			if ( pSceneTouchEvent.isActionDown() ) {
 				isTouchEnabled = true;
-				resourceManager.getVibrator().vibrate( 30 );
+//				resourceManager.getVibrator().vibrate( 30 );
 				setKeyPosition( pTouchAreaLocalX );
 				onSeekChanged();
 			} else {

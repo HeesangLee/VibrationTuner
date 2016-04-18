@@ -2826,7 +2826,7 @@ containing a value of this type.
         public static final int dlg_title_free_app=0x7f060047;
         public static final int finger_text=0x7f060055;
         public static final int high_score=0x7f060058;
-        public static final int no_camera=0x7f060059;
+        public static final int no_vibrator=0x7f060059;
         public static final int noti_desc_brainwavestudio=0x7f060068;
         public static final int noti_desc_circlecolormatch=0x7f060067;
         public static final int noti_desc_flashlight=0x7f060065;

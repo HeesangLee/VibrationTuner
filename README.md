@@ -11,7 +11,8 @@ Vibration Tuner
 
 
 ##ToDo
-
+- Add pattern seekBar
+ - on/off 만 있으니 너무 밋밋해용....
 
 ##Issue Tracking
 

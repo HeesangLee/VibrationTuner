@@ -6,7 +6,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
-import dalcoms.pub.flashlight.R;
+import dalcoms.pub.vibrationtuner.R;
 import dalcoms.pub.vibrationtuner.ResourcesManager;
 
 public class SceneManager {

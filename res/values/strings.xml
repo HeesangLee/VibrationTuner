@@ -28,7 +28,7 @@
     <string name="dlg_gotomenu_title">To Menu</string>
     <string name="dlg_gotomenu_message">Do you want to go to Menu?</string>
     <string name="high_score">dalcoms.pub.vibrationtuner.highScore</string>
-    <string name="no_camera">No camera flash is on your device</string>
+    <string name="no_vibrator">No Vibration motor is on your device</string>
     
     <string name="noti_title_flashlight">Free app recomendation</string>
     <string name="noti_title_jumpyx">Free game recomendation</string>

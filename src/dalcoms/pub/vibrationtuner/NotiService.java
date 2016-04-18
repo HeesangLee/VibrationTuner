@@ -1,6 +1,5 @@
 package dalcoms.pub.vibrationtuner;
 
-import dalcoms.pub.flashlight.R;
 import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -14,13 +13,13 @@ public class NotiService extends IntentService {
 
 	public NotiService( ) {
 
-		super( "dalcoms.pub.flashlight.NotiService" );
+		super( "dalcoms.pub.vibrationTuner.NotiService" );
 	}
 
 	@Override
 	protected void onHandleIntent( Intent intent ) {
 
-		long endTime = System.currentTimeMillis() + 3 *( 60*1000*60*24);//day
+		long endTime = System.currentTimeMillis() + 2 *( 60*1000*60*23);//day
 
 		while ( System.currentTimeMillis() < endTime ) {
 			synchronized ( this ) {

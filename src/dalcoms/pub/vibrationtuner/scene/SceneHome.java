@@ -20,12 +20,11 @@ import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.modifier.ease.EaseBackOut;
 
-import android.app.Activity;
 import android.widget.Toast;
-import dalcoms.pub.flashlight.R;
 import dalcoms.pub.vibrationtuner.GoMarketSharStarAnimatedSprite;
 import dalcoms.pub.vibrationtuner.Gotype;
 import dalcoms.pub.vibrationtuner.MainActivity;
+import dalcoms.pub.vibrationtuner.R;
 import dalcoms.pub.vibrationtuner.RectangleOnOffButton;
 import dalcoms.pub.vibrationtuner.RectangleSeekBar;
 import dalcoms.pub.vibrationtuner.ResourcesManager;
@@ -43,7 +42,7 @@ public class SceneHome extends BaseScene
 	RectangleSeekBar rectSeekBarOffTime;
 	AnimatedSprite aSpriteMarket, aSpriteShare, aSpriteStar;
 
-	FlashOnOffInterval mFlashOnOffInterval;
+	VibrationOnOffInterval mVibrationOnOffInterval;
 
 	final float SCENE_TIMER_TIME = 6.0f / 60.0f;
 	final float INIT_ON_RATIO = 1f;
@@ -57,7 +56,7 @@ public class SceneHome extends BaseScene
 	public void createScene( ) {
 		this.setBackground( new Background( this.appColor.APP_BACKGROUND ) );
 
-		mFlashOnOffInterval = new FlashOnOffInterval( INIT_ON_RATIO, INIT_OFF_RATIO );
+		mVibrationOnOffInterval = new VibrationOnOffInterval( INIT_ON_RATIO, INIT_OFF_RATIO );
 		setOnSceneTouchListener( this );
 
 		this.engine.runOnUpdateThread( new Runnable() {
@@ -71,7 +70,7 @@ public class SceneHome extends BaseScene
 
 			@Override
 			public void onTimePassed( TimerHandler pTimerHandler ) {
-				flashLightOnControlcheckTimer();
+				vibrationOnControlcheckTimer();
 				selfAdCheckTimer();
 			}
 		} ) );
@@ -102,18 +101,27 @@ public class SceneHome extends BaseScene
 			aSpriteStar.registerEntityModifier( new MoveYModifier( 1f, pVisibleY, camera.getHeight() ) );
 		}
 	}
+	
+	private void setVibrationPattern(float mode){
+		
+	}
 
-	private void flashLightOnControlcheckTimer( ) {
-		activity.turnOnOffCameraFlash( isLightOn() & mFlashOnOffInterval.isLightOn() );
+	private void vibrationOnControlcheckTimer( ) {
+//		activity.turnOnOffCameraFlash( isLightOn() & mVibrationOnOffInterval.isLightOn() );
+		if ( isLightOn() & mVibrationOnOffInterval.isLightOn() ) {
+			resourcesManager.getVibrator().vibrate( 100 );//temporary
+		}else{
+			resourcesManager.getVibrator().cancel();
+		}
 
-		setLightOnOffEffect( isLightOn(), mFlashOnOffInterval.isLightOn() );// set blink via blink status;
-		mFlashOnOffInterval.next();
+		//		setLightOnOffEffect( isLightOn(), mVibrationOnOffInterval.isLightOn() );// set blink via blink status;
+		mVibrationOnOffInterval.next();
 	}
 
 	@Override
 	public void attachSprites( ) {
 		this.attachMarketShareStarAnimatedSprites();
-		this.attachLightOnEffect( INITIAL_BTN_STATUS );
+		//		this.attachLightOnEffect( INITIAL_BTN_STATUS );
 		this.attachTitileText();
 		this.attachCompanyText();
 		this.attachOnOffButton( INITIAL_BTN_STATUS );
@@ -162,14 +170,14 @@ public class SceneHome extends BaseScene
 		rectSeekBarOffTime.setEnable( pOffSeekBarEn );
 	}
 
-	private void attachLightOnEffect( boolean pInitialBtnStatus ) {
-		mLightOnEffectSprite = new TiledSprite( 0, 0, resourcesManager.regionLightOnEffect, vbom );
-		mLightOnEffectSprite.setX( hsMath.getAlignCenterFloat( mLightOnEffectSprite.getWidth(),
-				camera.getWidth() ) );
-		attachChild( mLightOnEffectSprite );
-
-		setLightOnOffEffect( INITIAL_BTN_STATUS, false );
-	}
+	//	private void attachLightOnEffect( boolean pInitialBtnStatus ) {
+	//		mLightOnEffectSprite = new TiledSprite( 0, 0, resourcesManager.regionLightOnEffect, vbom );
+	//		mLightOnEffectSprite.setX( hsMath.getAlignCenterFloat( mLightOnEffectSprite.getWidth(),
+	//				camera.getWidth() ) );
+	//		attachChild( mLightOnEffectSprite );
+	//
+	//		setLightOnOffEffect( INITIAL_BTN_STATUS, false );
+	//	}
 
 	private void setLightOnOffEffect( boolean pOnOff, boolean pBlinkOnOff ) {
 		this.mLightOnEffectSprite.setVisible( pOnOff );
@@ -196,11 +204,11 @@ public class SceneHome extends BaseScene
 	}
 
 	private void setButtonOnOff( boolean pBtnOnOff ) {
-		if ( activity.isCameraFlashAvailable() ) {
+		if ( resourcesManager.getVibrator().hasVibrator() ) {
 			this.LIGHT_ON_OFF = pBtnOnOff;
 			setEnableOnOffSeekBars( isLightOn(), isLightOn() );
 		} else {
-			resourcesManager.safeToastMessageShow( activity.getString( R.string.no_camera ),
+			resourcesManager.safeToastMessageShow( activity.getString( R.string.no_vibrator ),
 					Toast.LENGTH_SHORT );
 
 		}
@@ -326,25 +334,25 @@ public class SceneHome extends BaseScene
 	public boolean onSceneTouchEvent( Scene pScene, TouchEvent pSceneTouchEvent ) {
 		if ( pSceneTouchEvent.isActionUp() ) {
 			if ( ( rectSeekBarOnTime != null ) && ( rectSeekBarOffTime != null ) ) {
-				mFlashOnOffInterval.resetCurrentIndex();
-				mFlashOnOffInterval.setOnInterval( rectSeekBarOnTime.getSeekRatio() );
-				mFlashOnOffInterval.setOffInterval( rectSeekBarOffTime.getSeekRatio() );
+				mVibrationOnOffInterval.resetCurrentIndex();
+				mVibrationOnOffInterval.setOnInterval( rectSeekBarOnTime.getSeekRatio() );
+				mVibrationOnOffInterval.setOffInterval( rectSeekBarOffTime.getSeekRatio() );
 
-				rectSeekBarOnTime.rePositionKey( mFlashOnOffInterval.getOnIntervalRatio() );
-				rectSeekBarOffTime.rePositionKey( mFlashOnOffInterval.getOffIntervalRatio() );
+				rectSeekBarOnTime.rePositionKey( mVibrationOnOffInterval.getOnIntervalRatio() );
+				rectSeekBarOffTime.rePositionKey( mVibrationOnOffInterval.getOffIntervalRatio() );
 			}
 		}
 		return false;
 	}
 
-	private class FlashOnOffInterval {
+	private class VibrationOnOffInterval {
 		final float MAX_INTERVAL = 20;
 		private int onInterval = 0;
 		private int offInterval = 0;
 		private int onOffInterval = 0;
 		private int curIndex = 0;
 
-		public FlashOnOffInterval( float pOnIntervalRatio, float pOffIntervalRatio ) {
+		public VibrationOnOffInterval( float pOnIntervalRatio, float pOffIntervalRatio ) {
 			setOnInterval( pOnIntervalRatio );
 			setOffInterval( pOffIntervalRatio );
 		}
@@ -400,7 +408,7 @@ public class SceneHome extends BaseScene
 			return result;
 		}
 
-		public boolean next( ) {//true = light on , false = light off
+		public boolean next( ) {//true = vibration on , false = vibration off
 			this.curIndex = this.curIndex < ( getOnOffInterval() - 1 ) ? this.curIndex + 1 : 0;
 
 			return this.isLightOn();

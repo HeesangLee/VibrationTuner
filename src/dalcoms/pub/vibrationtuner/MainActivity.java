@@ -15,8 +15,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
-import android.hardware.Camera.CameraInfo;
-import android.hardware.Camera.Parameters;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -27,10 +25,8 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import dalcoms.pub.flashlight.R;
 import dalcoms.pub.vibrationtuner.scene.SceneManager;
 
-@SuppressWarnings( "deprecation" )
 public class MainActivity extends LayoutGameActivity {
 	public Camera mCamera;
 
@@ -43,9 +39,7 @@ public class MainActivity extends LayoutGameActivity {
 
 	//	private boolean isNotiServiceCreated = false;
 
-	static android.hardware.Camera mHardwareCamera = null;
 	private boolean mIsCameraFlashAvailable = false;
-	Parameters mHardwareCameraParameter;
 
 	private Point getResizedCameraSize( ) {
 		Point retSize = new Point( 480, 789 );
@@ -58,7 +52,7 @@ public class MainActivity extends LayoutGameActivity {
 		DisplayMetrics displayMetrics = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics( displayMetrics );
 
-		Log.v("cameraSize",String.valueOf( displayMetrics.heightPixels ));
+//		Log.v("cameraSize",String.valueOf( displayMetrics.heightPixels ));
 		for ( int i = 0 ; i < cameraRefHeight.length ; i++ ) {
 			if ( displayMetrics.heightPixels > cameraRefHeight[i] ) {
 				retSize = useCameraSize[i];
@@ -147,8 +141,8 @@ public class MainActivity extends LayoutGameActivity {
 
 	@Override
 	public void onDestroy( ) {
-		ResourcesManager.getInstance().getVibrator().cancel();
-		destroyHardwareCamera();
+//		ResourcesManager.getInstance().getVibrator().cancel();
+//		destroyHardwareCamera();
 		hasBeenDestroyedPaused = true;
 		adMobAdView.destroy();
 		super.onDestroy();
@@ -157,12 +151,8 @@ public class MainActivity extends LayoutGameActivity {
 
 	@Override
 	public void onPause( ) {
-		//		ResourcesManager.getInstance().mVibrator.cancel();
 		try {
 			ResourcesManager.getInstance().getVibrator().cancel();
-			//			ResourcesManager.getInstance().getHardwareCamera().release();
-			//			ResourcesManager.getInstance().releaseHardwareCamera();
-			releaseHardwareCamera();
 		} catch ( NullPointerException e ) {
 			e.printStackTrace();
 		}
@@ -175,9 +165,6 @@ public class MainActivity extends LayoutGameActivity {
 	@Override
 	public synchronized void onResume( ) {
 		adMobAdView.resume();
-		//		ResourcesManager.getInstance().resumeHardwareCamera();
-		resumeHardwareCamera();
-
 		super.onResume();
 	}
 
@@ -192,10 +179,6 @@ public class MainActivity extends LayoutGameActivity {
 	@Override
 	protected void onCreate( Bundle pSavedInstanceState ) {
 		startNotiService();
-		if ( !checkCameraFlashAvailable() ) {
-			ResourcesManager.getInstance()
-					.safeToastMessageShow( this.getString( R.string.no_camera ), Toast.LENGTH_SHORT );
-		}
 
 		super.onCreate( pSavedInstanceState );
 	}
@@ -230,87 +213,4 @@ public class MainActivity extends LayoutGameActivity {
 		adMobAdView.setBackgroundColor( android.graphics.Color.TRANSPARENT );
 
 	}
-
-	private boolean checkCameraFlashAvailable( ) {
-		return mIsCameraFlashAvailable = getApplicationContext().getPackageManager()
-				.hasSystemFeature( PackageManager.FEATURE_CAMERA_FLASH );
-	}
-
-	private void setHardwareCamera( ) {
-		try {
-			mHardwareCamera = android.hardware.Camera.open( CameraInfo.CAMERA_FACING_BACK );
-		} catch ( Exception e ) {
-			e.printStackTrace();
-		}
-		mHardwareCameraParameter = mHardwareCamera.getParameters();
-		mHardwareCameraParameter.setFlashMode( Parameters.FLASH_MODE_OFF );
-		mHardwareCamera.setParameters( mHardwareCameraParameter );
-		mHardwareCamera.startPreview();
-	}
-
-	private class SetHardwareCameraTask extends AsyncTask<Void, Void, Void> {
-
-		@Override
-		protected Void doInBackground( Void... params ) {
-			Log.v("cameraFail",String.valueOf( android.hardware.Camera.getNumberOfCameras() ));
-			try {
-				mHardwareCamera = android.hardware.Camera.open( CameraInfo.CAMERA_FACING_BACK );
-			} catch ( Exception e ) {
-				e.printStackTrace();
-				android.hardware.Camera.open().unlock();
-				mHardwareCamera = android.hardware.Camera.open( CameraInfo.CAMERA_FACING_BACK );
-			}
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute( Void result ) {
-			mHardwareCameraParameter = mHardwareCamera.getParameters();
-			mHardwareCameraParameter.setFlashMode( Parameters.FLASH_MODE_OFF );
-			mHardwareCamera.setParameters( mHardwareCameraParameter );
-			mHardwareCamera.startPreview();
-		}
-
-	}
-
-	public android.hardware.Camera getHardwareCamera( ) {
-		return this.mHardwareCamera;
-	}
-
-	public void releaseHardwareCamera( ) {
-		this.mHardwareCamera.release();
-		this.mHardwareCamera = null;
-	}
-
-	public boolean isCameraFlashAvailable( ) {
-		return this.mIsCameraFlashAvailable;
-	}
-
-	public void destroyHardwareCamera( ) {
-		if ( mHardwareCamera != null ) {
-			mHardwareCamera.stopPreview();
-			mHardwareCamera.setPreviewCallback( null );
-			mHardwareCamera = null;
-		}
-	}
-
-	public void resumeHardwareCamera( ) {
-		//		setHardwareCamera();
-		new SetHardwareCameraTask().execute();
-	}
-
-	public void turnOnOffCameraFlash( boolean pOnOff ) {
-		try {
-			if ( pOnOff ) {
-				mHardwareCameraParameter.setFlashMode( Parameters.FLASH_MODE_TORCH );
-			} else {
-				mHardwareCameraParameter.setFlashMode( Parameters.FLASH_MODE_OFF );
-			}
-			mHardwareCamera.setParameters( mHardwareCameraParameter );
-		} catch ( Exception e ) {
-			e.printStackTrace();
-		}
-
-	}
-
 }

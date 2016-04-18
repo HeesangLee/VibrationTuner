@@ -20,7 +20,7 @@
     <string name="dlg_gotomenu_title">메뉴</string>
     <string name="dlg_gotomenu_message">메뉴로 가시겠습니까?</string>
     <string name="high_score">dalcoms.pub.flash.highScore</string>
-    <string name="no_camera">기기에 카메라 플레쉬가 없습니다.</string>
+   <string name="no_vibrator">기기에 진동 모터가 없습니다.</string>
     
     <string name="noti_title_flashlight">무료 앱 추천</string>
     <string name="noti_title_jumpyx">무료 추천 게임</string>

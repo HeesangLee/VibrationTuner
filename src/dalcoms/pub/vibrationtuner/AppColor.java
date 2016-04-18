@@ -18,12 +18,12 @@ public class AppColor {
 		return instance;
 	}
 
-	public final Color APP_BACKGROUND = new Color( 239f / COLOR_8BIT, 239f / COLOR_8BIT, 239f / COLOR_8BIT,
+	public final Color APP_BACKGROUND = new Color( 244f / COLOR_8BIT, 223f / COLOR_8BIT, 210f / COLOR_8BIT,
 			1f );
 	public final Color WHITE = new Color( 1f, 1f, 1f, 1f );
 	public final Color BLACK = new Color( 0, 0, 0, 1f );
 	public final Color RED = new Color( 1f, 0f, 0f, 1f );
-	public final Color ONOFF_BUTTON = new Color( 41f / COLOR_8BIT, 105f / COLOR_8BIT, 176f / COLOR_8BIT,
+	public final Color ONOFF_BUTTON = new Color( 223f / COLOR_8BIT, 98f / COLOR_8BIT, 98f / COLOR_8BIT,
 			COLOR_8BIT / COLOR_8BIT );
 	public final Color ONOFF_BUTTON_TEXTON = new Color( 255f / COLOR_8BIT, 255f / COLOR_8BIT,
 			255f / COLOR_8BIT, 180f / COLOR_8BIT );
@@ -32,11 +32,11 @@ public class AppColor {
 	
 	public final Color SEEK_BAR = new Color( 51f / COLOR_8BIT, 51f / COLOR_8BIT, 51f / COLOR_8BIT,
 			COLOR_8BIT / COLOR_8BIT );
-	public final Color SEEK_BAR_ACTIVEBAR_EN = new Color( 84f / COLOR_8BIT, 172f / COLOR_8BIT, 210f / COLOR_8BIT,
+	public final Color SEEK_BAR_ACTIVEBAR_EN = new Color( 255f / COLOR_8BIT, 184f / COLOR_8BIT, 143f / COLOR_8BIT,
 			COLOR_8BIT / COLOR_8BIT );
 	public final Color SEEK_BAR_ACTIVEBAR_DIS = new Color( 128f / COLOR_8BIT, 128f / COLOR_8BIT, 128f / COLOR_8BIT,
 			COLOR_8BIT / COLOR_8BIT );
-	public final Color SEEK_BAR_SW_EN = new Color( 41f / COLOR_8BIT, 105f / COLOR_8BIT, 176f / COLOR_8BIT,
+	public final Color SEEK_BAR_SW_EN = new Color( 223f / COLOR_8BIT, 98f / COLOR_8BIT, 98f / COLOR_8BIT,
 			COLOR_8BIT / COLOR_8BIT );
 	public final Color SEEK_BAR_SW_DIS = new Color( 77f / COLOR_8BIT, 77f / COLOR_8BIT, 77f / COLOR_8BIT,
 			COLOR_8BIT / COLOR_8BIT );

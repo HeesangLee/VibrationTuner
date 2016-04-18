@@ -233,9 +233,9 @@ public class ResourcesManager {
 
 		regionOnOffIcon = SVGBitmapTextureAtlasTextureRegionFactory
 				.createTiledFromAsset( this.atlasNearestPremultiplyAlpha, this.activity,
-						"onofficon_160x100_2x1.svg",
-						this.applyResizeFactor( 160 ),
-						this.applyResizeFactor( 100 ), 2, 1 );
+						"onofficon_244x104_2x1.svg",
+						this.applyResizeFactor( 244 ),
+						this.applyResizeFactor( 104 ), 2, 1 );
 
 		regionLightOnEffect = SVGBitmapTextureAtlasTextureRegionFactory
 				.createTiledFromAsset( this.atlasNearestPremultiplyAlpha, this.activity,

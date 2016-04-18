@@ -16,29 +16,7 @@
    inkscape:version="0.48.5 r10040"
    sodipodi:docname="market_share_star_btns_320x480.svg">
   <defs
-     id="defs6886">
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter7077">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="3.3133005"
-         id="feGaussianBlur7079" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       id="filter3879"
-       x="-0.144"
-       width="1.288"
-       y="-0.144"
-       height="1.288">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="4.9699507"
-         id="feGaussianBlur3881" />
-    </filter>
-  </defs>
+     id="defs6886" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -46,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="146.29378"
-     inkscape:cy="266.77456"
+     inkscape:zoom="0.7"
+     inkscape:cx="-49.630727"
+     inkscape:cy="351.78334"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -56,11 +34,11 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1920"
-     inkscape:window-height="1027"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1">
+     inkscape:window-width="958"
+     inkscape:window-height="1018"
+     inkscape:window-x="-7"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0">
     <inkscape:grid
        type="xygrid"
        id="grid3034" />
@@ -89,6 +67,27 @@
        height="160"
        x="488.57144"
        y="380.93362" />
+    <path
+       transform="matrix(1.6549208,0,0,1.6549208,-2823.3537,404.1626)"
+       d="m 2091.0159,34.304371 c 0,22.873566 -18.5427,41.416256 -41.4163,41.416256 -22.8736,0 -41.4162,-18.54269 -41.4162,-41.416256 0,-22.873567 18.5426,-41.4162561 41.4162,-41.4162561 22.8736,0 41.4163,18.5426891 41.4163,41.4162561 z"
+       sodipodi:ry="41.416256"
+       sodipodi:rx="41.416256"
+       sodipodi:cy="34.304371"
+       sodipodi:cx="2049.5996"
+       id="path6587-3"
+       style="fill:#fba026;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       sodipodi:type="arc"
+       inkscape:export-filename="C:\HeesangLee\Android\Dev\Dev_Data\MatchColorGame\Image\1080x1776\icon_share.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:export-ydpi="89.889999"
+       inkscape:export-xdpi="89.889999"
+       inkscape:export-filename="C:\HeesangLee\Android\Dev\Dev_Data\Nature Sound\Image\more_icon.png"
+       inkscape:connector-curvature="0"
+       id="path6762-4-9"
+       d="m 568.5717,425.5892 c -11.4421,0 -20.7987,8.9875 -21.3546,20.29 l -11.2951,0 0,50.3989 65.299,0 0,-50.3989 -11.3296,0 c -0.5533,-11.3025 -9.878,-20.29 -21.3197,-20.29 z m 0,5.7333 c 8.2587,0 15.0096,6.4358 15.5522,14.5567 l -31.1389,0 c 0.5455,-8.1209 7.3277,-14.5567 15.5867,-14.5567 z m -9.7159,28.9417 19.4315,10.8146 -19.4315,10.8143 0,-21.6289 z"
+       style="fill:#ffffff;stroke:none;display:inline" />
     <rect
        y="540.93359"
        x="488.57144"
@@ -129,7 +128,7 @@
        inkscape:export-xdpi="90"
        inkscape:export-filename="C:\HeesangLee\Android\Dev\Dev_Data\MatchColorGame\Image\1080x1776\icon_share.png"
        sodipodi:type="arc"
-       style="fill:#41a85f;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#fba026;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="path6773"
        sodipodi:cx="2049.5996"
        sodipodi:cy="34.304371"
@@ -150,7 +149,7 @@
        inkscape:export-xdpi="90"
        inkscape:export-filename="C:\HeesangLee\Android\Dev\Dev_Data\MatchColorGame\Image\1080x1776\icon_share.png"
        sodipodi:type="arc"
-       style="fill:#3d8eb9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#f37934;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="path4659-5-4-7"
        sodipodi:cx="2049.5996"
        sodipodi:cy="34.304371"
@@ -174,7 +173,7 @@
        sodipodi:cy="34.304371"
        sodipodi:cx="2049.5996"
        id="path4663-7-3-7"
-       style="fill:#553982;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#fba026;fill-opacity:1;fill-rule:nonzero;stroke:none"
        sodipodi:type="arc" />
     <path
        style="fill:#ffffff;fill-opacity:1;stroke:none;display:inline"
@@ -191,7 +190,7 @@
        sodipodi:cy="34.304371"
        sodipodi:cx="2049.5996"
        id="path6779"
-       style="fill:#3d8eb9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#f37934;fill-opacity:1;fill-rule:nonzero;stroke:none"
        sodipodi:type="arc"
        inkscape:export-filename="C:\HeesangLee\Android\Dev\Dev_Data\MatchColorGame\Image\1080x1776\icon_share.png"
        inkscape:export-xdpi="90"
@@ -206,7 +205,7 @@
        inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
-       style="fill:#553982;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#fba026;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="path6785"
        sodipodi:cx="2049.5996"
        sodipodi:cy="34.304371"
@@ -221,43 +220,18 @@
        d="m 747.23562,815.94195 -21.21947,-14.65522 -24.50075,7.87217 8.15343,-22.42963 -16.5552,-18.98363 26.25869,0.793 14.26914,-19.60468 8.07537,22.91973 25.37389,6.86722 -21.26802,13.37215 z"
        id="path6787"
        inkscape:connector-curvature="0" />
-    <g
-       id="g3874"
-       style="stroke:none">
-      <path
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="C:\HeesangLee\Android\Dev\Dev_Data\MatchColorGame\Image\1080x1776\icon_share.png"
-         sodipodi:type="arc"
-         style="fill:#41a85f;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="path6587-3"
-         sodipodi:cx="2049.5996"
-         sodipodi:cy="34.304371"
-         sodipodi:rx="41.416256"
-         sodipodi:ry="41.416256"
-         d="m 2091.0159,34.304371 c 0,22.873566 -18.5427,41.416256 -41.4163,41.416256 -22.8736,0 -41.4162,-18.54269 -41.4162,-41.416256 0,-22.873567 18.5426,-41.4162561 41.4162,-41.4162561 22.8736,0 41.4163,18.5426891 41.4163,41.4162561 z"
-         transform="matrix(1.6549208,0,0,1.6549208,-2823.3537,404.1626)" />
-      <path
-         style="fill:#ffffff;stroke:none;display:inline"
-         d="m 568.5717,425.5892 c -11.4421,0 -20.7987,8.9875 -21.3546,20.29 l -11.2951,0 0,50.3989 65.299,0 0,-50.3989 -11.3296,0 c -0.5533,-11.3025 -9.878,-20.29 -21.3197,-20.29 z m 0,5.7333 c 8.2587,0 15.0096,6.4358 15.5522,14.5567 l -31.1389,0 c 0.5455,-8.1209 7.3277,-14.5567 15.5867,-14.5567 z m -9.7159,28.9417 19.4315,10.8146 -19.4315,10.8143 0,-21.6289 z"
-         id="path6762-4-9"
-         inkscape:connector-curvature="0"
-         inkscape:export-filename="C:\HeesangLee\Android\Dev\Dev_Data\Nature Sound\Image\more_icon.png"
-         inkscape:export-xdpi="89.889999"
-         inkscape:export-ydpi="89.889999" />
-      <path
-         style="fill:#000000;fill-opacity:0.40000001000000002;fill-rule:nonzero;stroke:none"
-         d="m 568.5496,392.4024 0,137.0624 c 37.8539,0 68.5625,-30.6773 68.5625,-68.5312 0,-37.8539 -30.7086,-68.5312 -68.5625,-68.5312 z"
-         id="path6591-1"
-         inkscape:connector-curvature="0" />
-    </g>
     <path
-       style="fill:#000000;fill-opacity:0.40000001000000002;fill-rule:nonzero;stroke:none"
+       inkscape:connector-curvature="0"
+       id="path6591-1"
+       d="m 568.5496,392.4024 0,137.0624 c 37.8539,0 68.5625,-30.6773 68.5625,-68.5312 0,-37.8539 -30.7086,-68.5312 -68.5625,-68.5312 z"
+       style="fill:#000000;fill-opacity:0.12156863;fill-rule:nonzero;stroke:none" />
+    <path
+       style="fill:#000000;fill-opacity:0.12156863;fill-rule:nonzero;stroke:none"
        d="m 728.5932,392.4024 0,137.0624 c -37.8539,0 -68.5625,-30.6773 -68.5625,-68.5312 0,-37.8539 30.7086,-68.5312 68.5625,-68.5312 z"
        id="path6775"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:#000000;fill-opacity:0.40000001000000002;fill-rule:nonzero;stroke:none"
+       style="fill:#000000;fill-opacity:0.12156863;fill-rule:nonzero;stroke:none"
        d="m 568.5491,552.4024 0,137.0624 c 37.8539,0 68.5625,-30.6773 68.5625,-68.5312 0,-37.8539 -30.7086,-68.5312 -68.5625,-68.5312 z"
        id="path9665-3-2"
        inkscape:connector-curvature="0" />
@@ -265,14 +239,14 @@
        inkscape:connector-curvature="0"
        id="path9678-3-9"
        d="m 568.5493,712.4024 0,137.0624 c 37.8539,0 68.5625,-30.6773 68.5625,-68.5312 0,-37.8539 -30.7086,-68.5312 -68.5625,-68.5312 z"
-       style="fill:#000000;fill-opacity:0.40000001000000002;fill-rule:nonzero;stroke:none" />
+       style="fill:#000000;fill-opacity:0.12156863;fill-rule:nonzero;stroke:none" />
     <path
        inkscape:connector-curvature="0"
        id="path6783"
        d="m 728.5937,552.4024 0,137.0624 c -37.8539,0 -68.5625,-30.6773 -68.5625,-68.5312 0,-37.8539 30.7086,-68.5312 68.5625,-68.5312 z"
-       style="fill:#000000;fill-opacity:0.40000001000000002;fill-rule:nonzero;stroke:none" />
+       style="fill:#000000;fill-opacity:0.12156863;fill-rule:nonzero;stroke:none" />
     <path
-       style="fill:#000000;fill-opacity:0.40000001000000002;fill-rule:nonzero;stroke:none"
+       style="fill:#000000;fill-opacity:0.12156863;fill-rule:nonzero;stroke:none"
        d="m 728.5935,712.4024 0,137.0624 c -37.8539,0 -68.5625,-30.6773 -68.5625,-68.5312 0,-37.8539 30.7086,-68.5312 68.5625,-68.5312 z"
        id="path6789"
        inkscape:connector-curvature="0" />

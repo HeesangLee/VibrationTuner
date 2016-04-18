@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import dalcoms.pub.flashlight.R;
-
 import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
 
@@ -17,6 +15,7 @@ public class DalcomsAppList {
 	final ArrayList<String> mPakageListOfDalcomsApp = new ArrayList<String>() {
 		{
 			add( "dalcoms.pub.jumpyx" );
+			add( "dalcoms.pub.flashlight" );
 			add( "dalcoms.pub.circlecolormatch" );
 			add( "dalcoms.pub.brainwavestudio" );
 			add( "dalcoms.pub.naturesound" );
@@ -56,6 +55,7 @@ public class DalcomsAppList {
 		this.mPackageTitleMap = new HashMap<String, String>() {
 			{
 				put( "dalcoms.pub.jumpyx", mContext.getString( R.string.noti_title_jumpyx ) );
+				put("dalcoms.pub.flashlight",mContext.getString( R.string.noti_title_flashlight ));
 				put( "dalcoms.pub.circlecolormatch",
 						mContext.getString( R.string.noti_title_circlecolormatch ) );
 				put( "dalcoms.pub.brainwavestudio", mContext.getString( R.string.noti_title_brainwavestudio ) );
@@ -74,6 +74,7 @@ public class DalcomsAppList {
 		this.mPackageDescriptionMap = new HashMap<String, String>() {
 			{
 				put( "dalcoms.pub.jumpyx", mContext.getString( R.string.noti_desc_jumpyx ) );
+				put("dalcoms.pub.flashlight",mContext.getString( R.string.noti_desc_flashlight ));
 				put( "dalcoms.pub.brainwavestudio", mContext.getString( R.string.noti_desc_brainwavestudio ) );
 				put( "dalcoms.pub.naturesound", mContext.getString( R.string.noti_desc_naturesound ) );
 				put( "dalcoms.pub.lottonumgenall", mContext.getString( R.string.noti_desc_lottonumgenall ) );
