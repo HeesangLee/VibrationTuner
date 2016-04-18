@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Vibration Tuner</string>
+    <string name="app_title">VIBRATION TUNER</string>
+    <string name="company_name">dalcoms studio</string>
+    <string name="action_settings">Setting</string>
+    <string name="admob_banner_id">ca-app-pub-0894410772194388/5075186304</string>
+    <string name="admob_interstitial_id">ca-app-pub-0894410772194388/6551919505</string>
+    <string name="say_good_bye">Do you want to exit?</string>
+    <string name="advertize_myself">Do you want to see more Free App?</string>
+    <string name="ask_goto_menu">Do you want to go to Home menu?</string>
+    <string name="dlg_title_free_app">Free Apps.</string>
+    <string name="dlg_title_exit">EXIT</string>
+    <string name="share_subject">VIBRATION TUNER</string>
+    <string name="share_text">[Free] VIBRATION TUNER \n https://play.google.com/store/apps/details?id=dalcoms.pub.vibrationtuner</string>
+    <string name="app_id">dalcoms.pub.vibrationtuner</string>
+    <string name="btn_title_play">Play</string>
+    <string name="btn_title_next">Next</string>
+    <string name="btn_title_retry">Retry</string>
+    <string name="btn_title_start">Start</string>
+    <string name="text_score">SCORE</string>
+    <string name="text_bestscore">BEST</string>
+    <string name="text_yes">Yes</string>
+    <string name="text_no">No</string>
+    <string name="text_cancel">Cancel</string>
+    <string name="finger_text">Touch and Fire</string>
+    <string name="dlg_gotomenu_title">To Menu</string>
+    <string name="dlg_gotomenu_message">Do you want to go to Menu?</string>
+    <string name="high_score">dalcoms.pub.vibrationtuner.highScore</string>
+    <string name="no_camera">No camera flash is on your device</string>
+    
+    <string name="noti_title_flashlight">Free app recomendation</string>
+    <string name="noti_title_jumpyx">Free game recomendation</string>
+    <string name="noti_title_circlecolormatch">Free game recomendation</string>
+    <string name="noti_title_brainwavestudio">Free app recomendation</string>
+    <string name="noti_title_naturesound">Free app recomendation</string>
+    <string name="noti_title_lottonumgenall">Free app recomendation</string>
+    <string name="noti_title_lottonum645only">Free app recomendation</string>
+    <string name="noti_title_mathkids">Free kids app recomendation</string>
+    <string name="noti_title_moodvibrator">Free app recomendation</string>
+    <string name="noti_title_skinvibrator">Free app recomendation</string>
+    <string name="noti_title_unitconverter">Free util recomendation</string>
+    
+    <string name="noti_desc_flashlight">Useful Flashlight App</string>
+    <string name="noti_desc_jumpyx">Jump with JumpyX</string>
+    <string name="noti_desc_circlecolormatch">Color matching game</string>
+    <string name="noti_desc_brainwavestudio">You can tune your brainwave</string>
+    <string name="noti_desc_naturesound">Take a rest and get a peace.</string>
+    <string name="noti_desc_lottonumgenall">Win the Lotto</string>
+    <string name="noti_desc_lottonum645only">Win the Lotto645</string>
+    <string name="noti_desc_mathkids">Basic mathematics for Kids</string>
+    <string name="noti_desc_moodvibrator">Free vibration app</string>
+    <string name="noti_desc_skinvibrator">Free vibration app</string>
+    <string name="noti_desc_unitconverter">You can convert all kind of units</string>
+
+</resources>

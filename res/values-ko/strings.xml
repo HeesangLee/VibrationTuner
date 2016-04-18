@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">진동 튜너</string>
+    <string name="company_name">dalcoms studio</string>
+    <string name="action_settings">설정</string>
+    <string name="admob_banner_id">ca-app-pub-0894410772194388/5075186304</string>
+    <string name="admob_interstitial_id">ca-app-pub-0894410772194388/6551919505</string>
+    <string name="say_good_bye">앱을 종료하시겠습니까?</string>
+    <string name="advertize_myself">다양한 무료앱을 구경하시겠습니까?</string>
+    <string name="ask_goto_menu">홈메뉴로 가시겠습니까?</string>
+    <string name="dlg_title_free_app">무료앱</string>
+    <string name="dlg_title_exit">종료</string>
+    <string name="share_subject">진동 튜너</string>
+    <string name="share_text">[Free] 진동 튜너 \n https://play.google.com/store/apps/details?id=dalcoms.pub.vibrationtuner</string>
+    <string name="app_id">dalcoms.pub.vibrationtuner</string>
+    <string name="text_yes">네</string>
+    <string name="text_no">아니오</string>
+    <string name="text_cancel">취소</string>
+    <string name="dlg_gotomenu_title">메뉴</string>
+    <string name="dlg_gotomenu_message">메뉴로 가시겠습니까?</string>
+    <string name="high_score">dalcoms.pub.flash.highScore</string>
+    <string name="no_camera">기기에 카메라 플레쉬가 없습니다.</string>
+    
+    <string name="noti_title_flashlight">무료 앱 추천</string>
+    <string name="noti_title_jumpyx">무료 추천 게임</string>
+    <string name="noti_title_circlecolormatch">무료 추천 게임</string>
+    <string name="noti_title_brainwavestudio">무료 앱 추천</string>
+    <string name="noti_title_naturesound">무료 앱 추천</string>
+    <string name="noti_title_lottonumgenall">무료 로또 앱 추천</string>
+    <string name="noti_title_lottonum645only">무료 로또 앱 추천</string>
+    <string name="noti_title_mathkids">무료 교육 앱 추천</string>
+    <string name="noti_title_moodvibrator">무료 앱 추천</string>
+    <string name="noti_title_skinvibrator">무료 앱 추천</string>
+    <string name="noti_title_unitconverter">무료 앱 추천</string>
+    
+    <string name="noti_desc_flashlight">스마트폰 손전등</string>
+    <string name="noti_desc_jumpyx">흥미진진한 점프 엑션 점피엑스 ♡</string>
+    <string name="noti_desc_circlecolormatch">아름다운 색깔 맞추기 게임</string>
+    <string name="noti_desc_brainwavestudio">당신의 뇌파를 마음데로...♡</string>
+    <string name="noti_desc_naturesound">자연 명상 소리와 마음의 평온을....♡</string>
+    <string name="noti_desc_lottonumgenall">로또 예언자와 대박을...</string>
+    <string name="noti_desc_lottonum645only">로또 대박 앱 받으러 가기...</string>
+    <string name="noti_desc_mathkids">아이들을 위한 기초 수학 앱</string>
+    <string name="noti_desc_moodvibrator">진동 발생기</string>
+    <string name="noti_desc_skinvibrator">진동 발생 조정 애플리케이션</string>
+    <string name="noti_desc_unitconverter">심플한 단위 변환기 받으러 가기</string>
+
+</resources>
