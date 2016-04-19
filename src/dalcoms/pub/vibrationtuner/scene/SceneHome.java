@@ -20,6 +20,7 @@ import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.modifier.ease.EaseBackOut;
 
+import android.util.Log;
 import android.widget.Toast;
 import dalcoms.pub.vibrationtuner.GoMarketSharStarAnimatedSprite;
 import dalcoms.pub.vibrationtuner.Gotype;
@@ -28,6 +29,7 @@ import dalcoms.pub.vibrationtuner.R;
 import dalcoms.pub.vibrationtuner.RectangleOnOffButton;
 import dalcoms.pub.vibrationtuner.RectangleSeekBar;
 import dalcoms.pub.vibrationtuner.ResourcesManager;
+import dalcoms.pub.vibrationtuner.VibPattern;
 
 public class SceneHome extends BaseScene
 		implements IOnSceneTouchListener {
@@ -38,13 +40,17 @@ public class SceneHome extends BaseScene
 	TiledSprite mLightOnEffectSprite;
 	private boolean LIGHT_ON_OFF = false;
 
+	RectangleSeekBar rectSeekBarModeSel;
 	RectangleSeekBar rectSeekBarOnTime;
 	RectangleSeekBar rectSeekBarOffTime;
 	AnimatedSprite aSpriteMarket, aSpriteShare, aSpriteStar;
 
 	VibrationOnOffInterval mVibrationOnOffInterval;
 
+	VibPattern mVibPattern;
+
 	final float SCENE_TIMER_TIME = 6.0f / 60.0f;
+	final float INIT_MODE_RATIO = 0.5f;
 	final float INIT_ON_RATIO = 1f;
 	final float INIT_OFF_RATIO = 0f;
 
@@ -63,6 +69,7 @@ public class SceneHome extends BaseScene
 			@Override
 			public void run( ) {
 				attachSprites();
+				//				setVibrationPattern( rectSeekBarModeSel.getSeekRatio() );
 			}
 		} );
 
@@ -89,32 +96,36 @@ public class SceneHome extends BaseScene
 	}
 
 	private void setSelfAdVisible( boolean pVisible ) {
-		final float pVisibleY = resourcesManager.applyResizeFactor( 1396f );
+		final float pVisibleY = resourcesManager.applyResizeFactor( 1380f );
+		final float pVisibleNotY = resourcesManager.applyResizeFactor( 1424.295f );
+
 		if ( pVisible ) {
 			//			aSpriteMarket, aSpriteShare, aSpriteStar;
-			aSpriteMarket.registerEntityModifier( new MoveYModifier( 1.5f, camera.getHeight(), pVisibleY ) );
-			aSpriteShare.registerEntityModifier( new MoveYModifier( 1f, camera.getHeight(), pVisibleY ) );
-			aSpriteStar.registerEntityModifier( new MoveYModifier( 1.5f, camera.getHeight(), pVisibleY ) );
+			aSpriteMarket.registerEntityModifier( new MoveYModifier( 1.5f, pVisibleNotY, pVisibleY ) );
+			aSpriteShare.registerEntityModifier( new MoveYModifier( 1f, pVisibleNotY, pVisibleY ) );
+			aSpriteStar.registerEntityModifier( new MoveYModifier( 1.5f, pVisibleNotY, pVisibleY ) );
 		} else {
-			aSpriteMarket.registerEntityModifier( new MoveYModifier( 1f, pVisibleY, camera.getHeight() ) );
-			aSpriteShare.registerEntityModifier( new MoveYModifier( 1f, pVisibleY, camera.getHeight() ) );
-			aSpriteStar.registerEntityModifier( new MoveYModifier( 1f, pVisibleY, camera.getHeight() ) );
+			aSpriteMarket.registerEntityModifier( new MoveYModifier( 1f, pVisibleY, pVisibleNotY ) );
+			aSpriteShare.registerEntityModifier( new MoveYModifier( 1f, pVisibleY, pVisibleNotY ) );
+			aSpriteStar.registerEntityModifier( new MoveYModifier( 1f, pVisibleY, pVisibleNotY ) );
 		}
 	}
-	
-	private void setVibrationPattern(float mode){
-		
+
+	private void setVibrationPattern( float pMode ) {
+		if ( mVibPattern == null ) {
+			mVibPattern = new VibPattern();
+		}
+		resourcesManager.getVibrator().vibrate( mVibPattern.getPattern( Math.round( pMode * 100f ) ), 0 );
 	}
 
 	private void vibrationOnControlcheckTimer( ) {
-//		activity.turnOnOffCameraFlash( isLightOn() & mVibrationOnOffInterval.isLightOn() );
 		if ( isLightOn() & mVibrationOnOffInterval.isLightOn() ) {
-			resourcesManager.getVibrator().vibrate( 100 );//temporary
-		}else{
+			if ( mVibrationOnOffInterval.getCurrentIndex() == 0 ) {
+				setVibrationPattern( rectSeekBarModeSel.getSeekRatio() );
+			}
+		} else {
 			resourcesManager.getVibrator().cancel();
 		}
-
-		//		setLightOnOffEffect( isLightOn(), mVibrationOnOffInterval.isLightOn() );// set blink via blink status;
 		mVibrationOnOffInterval.next();
 	}
 
@@ -125,15 +136,30 @@ public class SceneHome extends BaseScene
 		this.attachTitileText();
 		this.attachCompanyText();
 		this.attachOnOffButton( INITIAL_BTN_STATUS );
-		this.attachOnOffSeekBars( INITIAL_BTN_STATUS );
+		this.attachSeekBars( INITIAL_BTN_STATUS );
 	}
 
-	private void attachOnOffSeekBars( boolean pInitialBtnStatus ) {
+	private void attachSeekBars( boolean pInitialBtnStatus ) {
 		final float pWidth = resourcesManager.applyResizeFactor( 800f );
 		final float pHeight = resourcesManager.applyResizeFactor( 100f );
 		final float pX = hsMath.getAlignCenterFloat( pWidth, camera.getWidth() );
-		final float pYOn = resourcesManager.applyResizeFactor( 910f );
-		final float pYOff = resourcesManager.applyResizeFactor( 1138f );
+		final float pYMode = resourcesManager.applyResizeFactor( 797f );
+		final float pYOn = resourcesManager.applyResizeFactor( 994f );
+		final float pYOff = resourcesManager.applyResizeFactor( 1190f );
+
+		rectSeekBarModeSel = new RectangleSeekBar( pX, pYMode, pWidth, pHeight, vbom,
+				resourcesManager.getFontButton(),
+				"MODE",
+				appColor.SEEK_BAR,
+				appColor.SEEK_BAR_ACTIVEBAR_EN,
+				appColor.SEEK_BAR_ACTIVEBAR_DIS,
+				appColor.SEEK_BAR_SW_EN,
+				appColor.SEEK_BAR_SW_DIS,
+				INIT_MODE_RATIO,
+				pInitialBtnStatus );
+
+		attachChild( rectSeekBarModeSel );
+		registerTouchArea( rectSeekBarModeSel );
 
 		rectSeekBarOnTime = new RectangleSeekBar( pX, pYOn, pWidth, pHeight, vbom,
 				resourcesManager.getFontButton(),
@@ -165,23 +191,10 @@ public class SceneHome extends BaseScene
 
 	}
 
-	private void setEnableOnOffSeekBars( boolean pOnSeekBarEn, boolean pOffSeekBarEn ) {
+	private void setEnableSeekBars( boolean pModeSeekBarEn, boolean pOnSeekBarEn, boolean pOffSeekBarEn ) {
+		rectSeekBarModeSel.setEnable( pModeSeekBarEn );
 		rectSeekBarOnTime.setEnable( pOnSeekBarEn );
 		rectSeekBarOffTime.setEnable( pOffSeekBarEn );
-	}
-
-	//	private void attachLightOnEffect( boolean pInitialBtnStatus ) {
-	//		mLightOnEffectSprite = new TiledSprite( 0, 0, resourcesManager.regionLightOnEffect, vbom );
-	//		mLightOnEffectSprite.setX( hsMath.getAlignCenterFloat( mLightOnEffectSprite.getWidth(),
-	//				camera.getWidth() ) );
-	//		attachChild( mLightOnEffectSprite );
-	//
-	//		setLightOnOffEffect( INITIAL_BTN_STATUS, false );
-	//	}
-
-	private void setLightOnOffEffect( boolean pOnOff, boolean pBlinkOnOff ) {
-		this.mLightOnEffectSprite.setVisible( pOnOff );
-		this.mLightOnEffectSprite.setCurrentTileIndex( ( pBlinkOnOff & pOnOff ) ? 1 : 0 );
 	}
 
 	private void attachOnOffButton( boolean pInitialBtnStatus ) {
@@ -197,7 +210,7 @@ public class SceneHome extends BaseScene
 		};
 		pOnOffButton.setColor( appColor.ONOFF_BUTTON );
 		pOnOffButton.setCenterPosition( camera.getCenterX(),
-				resourcesManager.applyResizeFactor( 543.768f ) );
+				resourcesManager.applyResizeFactor( 486.806f ) );
 		attachChild( pOnOffButton );
 		registerTouchArea( pOnOffButton );
 
@@ -206,7 +219,7 @@ public class SceneHome extends BaseScene
 	private void setButtonOnOff( boolean pBtnOnOff ) {
 		if ( resourcesManager.getVibrator().hasVibrator() ) {
 			this.LIGHT_ON_OFF = pBtnOnOff;
-			setEnableOnOffSeekBars( isLightOn(), isLightOn() );
+			setEnableSeekBars( isLightOn(), isLightOn(), isLightOn() );
 		} else {
 			resourcesManager.safeToastMessageShow( activity.getString( R.string.no_vibrator ),
 					Toast.LENGTH_SHORT );
@@ -219,7 +232,7 @@ public class SceneHome extends BaseScene
 	}
 
 	private void attachTitileText( ) {
-		final float pY = resourcesManager.applyResizeFactor( 170f );
+		final float pY = resourcesManager.applyResizeFactor( 176.318f );
 		Text pTitleText = new Text( 0, 0, resourcesManager.getFontDefault(),
 				activity.getString( R.string.app_title ), vbom );
 		pTitleText.setPosition( appComm.getAlignCenterFloat( pTitleText.getWidth(), camera.getWidth() ), pY );
@@ -242,7 +255,7 @@ public class SceneHome extends BaseScene
 	}
 
 	private void attachMarketShareStarAnimatedSprites( ) {
-		final float pY = camera.getHeight();
+		final float pY = resourcesManager.applyResizeFactor( 1424.295f );//camera.getHeight();
 		float[] pX = appComm.getDistributedCenterOrgPosition(
 				resourcesManager.regionMarketShareStar.getWidth(), 3,
 				resourcesManager.applyResizeFactor( 640f ),
@@ -340,9 +353,22 @@ public class SceneHome extends BaseScene
 
 				rectSeekBarOnTime.rePositionKey( mVibrationOnOffInterval.getOnIntervalRatio() );
 				rectSeekBarOffTime.rePositionKey( mVibrationOnOffInterval.getOffIntervalRatio() );
+
+				//				rectSeekBarModeSel.rePositionKey( Math.round( rectSeekBarModeSel.getSeekRatio() ) );
+				setVibrationPattern( rectSeekBarModeSel.getSeekRatio() );
 			}
 		}
 		return false;
+	}
+
+	public void pauseVibration( ) {
+		Log.v( "vibBug", "paused" );
+		if ( mVibrationOnOffInterval != null ) {
+			mVibrationOnOffInterval.resetCurrentIndex();
+		}
+		if ( resourcesManager.getVibrator() != null ) {
+			resourcesManager.getVibrator().cancel();
+		}
 	}
 
 	private class VibrationOnOffInterval {

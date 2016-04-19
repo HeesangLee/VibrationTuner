@@ -12,7 +12,7 @@ import dalcoms.pub.vibrationtuner.ThisAppCommon;
 
 import android.app.Activity;
 
-public abstract class BaseScene extends Scene{
+public abstract class BaseScene extends Scene {
 	protected Engine engine;
 	protected MainActivity activity;
 	protected VertexBufferObjectManager vbom;
@@ -21,8 +21,8 @@ public abstract class BaseScene extends Scene{
 	protected SceneManager sceneManager;
 	protected AppColor appColor;
 	protected ThisAppCommon appComm;
-	
-	public BaseScene(){
+
+	public BaseScene( ) {
 		this.resourcesManager = ResourcesManager.getInstance();
 		this.engine = this.resourcesManager.getEngine();
 		this.activity = this.resourcesManager.getActivity();
@@ -31,21 +31,31 @@ public abstract class BaseScene extends Scene{
 		this.sceneManager = SceneManager.getInstance();
 		this.appColor = AppColor.getInstance();
 		this.appComm = new ThisAppCommon();
-		
+
 		this.createScene();
 	}
-	
-	public abstract void createScene();
-	public abstract void attachSprites();
-	public abstract void onBackKeyPressed();
-	public abstract SceneType getSceneType();
-	
-	public abstract Engine getEngine();
-	public abstract MainActivity getActivity();
-	public abstract VertexBufferObjectManager getVbom();
-	public abstract Camera getCamera();
-	public abstract ResourcesManager getResourcesManager();
-	public abstract SceneManager getSceneManager();
-	
-	public abstract void disposeScene();
+
+	public abstract void createScene( );
+
+	public abstract void attachSprites( );
+
+	public abstract void onBackKeyPressed( );
+
+	public abstract void pauseVibration( );
+
+	public abstract SceneType getSceneType( );
+
+	public abstract Engine getEngine( );
+
+	public abstract MainActivity getActivity( );
+
+	public abstract VertexBufferObjectManager getVbom( );
+
+	public abstract Camera getCamera( );
+
+	public abstract ResourcesManager getResourcesManager( );
+
+	public abstract SceneManager getSceneManager( );
+
+	public abstract void disposeScene( );
 }

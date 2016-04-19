@@ -152,11 +152,11 @@ public class MainActivity extends LayoutGameActivity {
 	@Override
 	public void onPause( ) {
 		try {
-			ResourcesManager.getInstance().getVibrator().cancel();
+//			ResourcesManager.getInstance().getVibrator().cancel();
+			SceneManager.getInstance().getCurrentScene().pauseVibration();
 		} catch ( NullPointerException e ) {
 			e.printStackTrace();
 		}
-
 		hasBeenDestroyedPaused = true;
 		adMobAdView.pause();
 		super.onPause();
@@ -165,6 +165,12 @@ public class MainActivity extends LayoutGameActivity {
 	@Override
 	public synchronized void onResume( ) {
 		adMobAdView.resume();
+//		try{
+//			SceneManager.getInstance().getCurrentScene().onSceneResume();
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
+		
 		super.onResume();
 	}
 
