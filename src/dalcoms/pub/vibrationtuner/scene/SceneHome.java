@@ -364,7 +364,8 @@ public class SceneHome extends BaseScene
 	public void pauseVibration( ) {
 		Log.v( "vibBug", "paused" );
 		if ( mVibrationOnOffInterval != null ) {
-			mVibrationOnOffInterval.resetCurrentIndex();
+//			mVibrationOnOffInterval.resetCurrentIndex();
+			mVibrationOnOffInterval.setCurrentIndexToMax();
 		}
 		if ( resourcesManager.getVibrator() != null ) {
 			resourcesManager.getVibrator().cancel();
@@ -411,6 +412,10 @@ public class SceneHome extends BaseScene
 
 		public void resetCurrentIndex( ) {
 			this.curIndex = 0;
+		}
+
+		public void setCurrentIndexToMax( ) {
+			this.curIndex = getOnOffInterval();
 		}
 
 		public int getCurrentIndex( ) {
