@@ -345,7 +345,7 @@ public class SceneHome extends BaseScene
 
 	@Override
 	public boolean onSceneTouchEvent( Scene pScene, TouchEvent pSceneTouchEvent ) {
-		if ( pSceneTouchEvent.isActionUp() ) {
+		if ( pSceneTouchEvent.isActionUp() && isLightOn()) {
 			if ( ( rectSeekBarOnTime != null ) && ( rectSeekBarOffTime != null ) ) {
 				mVibrationOnOffInterval.resetCurrentIndex();
 				mVibrationOnOffInterval.setOnInterval( rectSeekBarOnTime.getSeekRatio() );
@@ -363,12 +363,12 @@ public class SceneHome extends BaseScene
 
 	public void pauseVibration( ) {
 		Log.v( "vibBug", "paused" );
-		if ( mVibrationOnOffInterval != null ) {
-//			mVibrationOnOffInterval.resetCurrentIndex();
-			mVibrationOnOffInterval.setCurrentIndexToMax();
-		}
+		
 		if ( resourcesManager.getVibrator() != null ) {
 			resourcesManager.getVibrator().cancel();
+		}
+		if ( mVibrationOnOffInterval != null ) {
+			mVibrationOnOffInterval.setCurrentIndexToMax();
 		}
 	}
 

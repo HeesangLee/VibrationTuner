@@ -19,7 +19,7 @@ public class NotiService extends IntentService {
 	@Override
 	protected void onHandleIntent( Intent intent ) {
 
-		long endTime = System.currentTimeMillis() + 2 *( 60*1000*60*23);//day
+		long endTime = System.currentTimeMillis() + 2*1000;//2 *( 60*1000*60*23);//day
 
 		while ( System.currentTimeMillis() < endTime ) {
 			synchronized ( this ) {
